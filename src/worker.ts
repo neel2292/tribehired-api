@@ -15,7 +15,9 @@ async function getPosts() {
         post.comments = tmp[post.id];
     });
 
-    return posts;
+    return posts.sort((a, b) => {
+        return b.comments - a.comments;
+    });
 }
 
 async function findPost(id) {
